@@ -8,7 +8,15 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            * {
+                font-family: 'Rubik', sans-serif;
+            }
+        </style>
         @vite(['resources/js/app.js'])
     <body>
         <div id="app"></div>
