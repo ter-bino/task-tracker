@@ -1,7 +1,7 @@
 <template>
     <div>
       <div v-for="task in tasks" :key="task.id" class="mb-3">
-        <TaskItem :id="task.id" :title="task.title" :description="task.description" :deadline="new Date(task.deadline)" :isImportant="task.isImportant===1? true: false" :isCompleted="task.isCompleted===1? true: false"/>
+        <TaskItem :id="task.id" :title="task.title" :description="task.description" :deadline="new Date(task.deadline)" :isImportant="task.isImportant===1? true: false" :isCompleted="task.isCompleted===1? true: false" :delete="deleteTask"/>
       </div>
     </div>
   </template>
