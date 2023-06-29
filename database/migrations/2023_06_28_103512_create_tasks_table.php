@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('title');
             $table->text('description');
-            $table->dateTime('deadline');
+            $table->date('deadline');
             $table->boolean('isImportant')->default(false);
             $table->boolean('isCompleted')->default(false);
             $table->timestamps();
