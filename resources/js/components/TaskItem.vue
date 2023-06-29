@@ -1,5 +1,5 @@
 <template>
-    <div :class="[{'bg-red-200': needsAttention}, 'bg-white', 'shadow-lg', 'rounded-2xl', 'p-4', 'flex']">
+    <div :class="[{'bg-red-200': needsAttention && !isCompleted}, 'bg-white', 'shadow-lg', 'rounded-2xl', 'p-4', 'flex']">
         <div class="flex-grow">
             <h1 class="font-bold truncate">
                 {{title}}
