@@ -26,15 +26,15 @@
             </div>
             <div v-if="task.isImportant || task.isCompleted">
                 <span class="border-l-4 border-red-200 pr-4 pl-1 font-bold">Additonal Notes:</span>
-                <div class="flex flex-row my-4 items-center">
+                <div v-if="task.isImportant" class="flex flex-row my-4 items-center">
                     <span class="font-bold text-xl text-white h-6 w-6 bg-red-500 rounded-full text-center">!</span>
-                    <p v-if="task.isImportant" class="mx-4">
+                    <p class="mx-4">
                         This task is marked as important
                     </p>
                 </div>
-                <div class="flex flex-row my-4 items-center">
+                <div v-if="task.isCompleted" class="flex flex-row my-4 items-center">
                     <span class="font-bold text-xl text-white h-6 w-6 bg-green-500 rounded-full text-center">✓</span>
-                    <p v-if="task.isCompleted" class="mx-4">
+                    <p class="mx-4">
                         This task is marked as completed
                     </p>
                 </div>
