@@ -1,6 +1,6 @@
 <template>
     <div :class="[{'bg-red-200': needsAttention && !isCompleted}, 'bg-white', 'shadow-lg', 'rounded-2xl', 'p-4', 'flex']">
-        <div class="flex-grow">
+        <router-link :to="viewLink"  class="flex-grow">
             <h1 class="font-bold truncate">
                 {{title}}
                 <span v-if="isCompleted" class="text-white px-2 bg-green-500 rounded-full">✓</span>
@@ -8,7 +8,7 @@
             </h1>
             <p class="text-sm">{{ formattedDeadline }}</p>
             <p>{{ shortenedDescription }}</p>
-        </div>
+        </router-link>
         <div class="flex flex-col md:flex-row">
             <router-link :to="editLink" class="px-2 my-auto md:mx-2 md:w-32 text-center bg-yellow-500 rounded-lg text-white">EDIT</router-link>
             <button @click="()=>props.delete(props.id)" type="button" class="px-2 my-auto md:mx-2 md:w-32 text-center bg-red-500 rounded-lg text-white">DELETE</button>
@@ -33,6 +33,10 @@
         const options = { month: 'short' , day: 'numeric', year: 'numeric'};
         return new Date(props.deadline).toLocaleString(undefined, options);
     });
+
+    const viewLink = computed(() => {
+        return `/tasks/${props.id.toString()}`;
+    })
 
     const editLink = computed(() => {
         return `/tasks/${props.id.toString()}/edit`;
