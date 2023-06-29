@@ -28,8 +28,9 @@
                 </div>
             </div>
             <div class="flex justify-center">
-                <button v-if="isNewTask" type="submit" class="p-1 border border-green-200">Add Task</button>
-                <button v-else type="submit" class="p-1 border border-green-200">Update Task</button>
+                <router-link to="/" type="button" class="mx-2 px-2 py-1 border rounded-lg text-white bg-blue-500">BACK</router-link>
+                <button v-if="isNewTask" type="submit" class="mx-2 px-2 py-1 border rounded-lg text-white bg-green-800">ADD TASK</button>
+                <button v-else type="submit" class="mx-2 px-2 py-1 border rounded-lg text-white bg-yellow-500">EDIT TASK</button>
             </div>
         </form>
     </div>
