@@ -74,6 +74,7 @@ export default {
                     await axios.put(`/api/tasks/${this.$route.params.id}`, this.task);
                 }
                 this.clearForm();
+                this.$router.push('/')
             } catch (error) {
                 alert('Failed to submit form')
             }
