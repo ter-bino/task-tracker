@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white shadow-md rounded-lg p-4">
+    <div class="bg-white shadow-md rounded-lg p-4 sm:max-w-2xl md:max-w-4xl mx-auto">
         <div class="border-b-4 border-red-200 text-center font-bold text-gray-500">
             <h1 v-if="isNewTask">NEW TASK</h1>
             <h1 v-else>Edit Task</h1>
@@ -22,7 +22,7 @@
                     <label for="important" class="text-gray-500">Important? </label>
                     <input type="checkbox" id="important" v-model="task.isImportant" class="border border-gray-400 focus:outline-none text-gray-700" />
                 </div>
-                <div>
+                <div v-if="!isNewTask">
                     <label for="completed" class="text-gray-500">Completed? </label>
                     <input type="checkbox" id="completed" v-model="task.isCompleted" class="border border-gray-400 focus:outline-none text-gray-700" />
                 </div>
