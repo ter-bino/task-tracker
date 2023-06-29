@@ -10,6 +10,8 @@ import Task from './components/Task.vue';
 import TaskList from './components/TaskList.vue'
 import TaskForm from './components/TaskForm.vue'
 
+import '../css/app.css';
+
 //creating router
 const router = createRouter({
     history: createWebHistory(),
