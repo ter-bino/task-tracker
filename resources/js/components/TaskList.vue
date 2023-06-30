@@ -15,7 +15,7 @@
   
   const fetchTasks = async () => {
     try {
-      const response = await axios.get('/api/tasks');
+      const response = await axios.get(route('tasks.index'));
       tasks.value = response.data;
     } catch (error) {
       alert("Unable to fetch tasks.");

@@ -10,6 +10,8 @@ import Task from './components/Task.vue';
 import TaskList from './components/TaskList.vue'
 import TaskForm from './components/TaskForm.vue'
 
+import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
+
 import '../css/app.css';
 
 //creating router
@@ -25,4 +27,5 @@ const router = createRouter({
 
 const app = createApp(App);
 app.use(router);
+app.use(ZiggyVue, Ziggy);
 app.mount('#app');
