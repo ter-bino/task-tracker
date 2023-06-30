@@ -1,5 +1,5 @@
 <template>
-    <div :class="[{'bg-red-200': needsAttention && !isCompleted}, 'bg-white', 'shadow-lg', 'rounded-2xl', 'p-4', 'flex']">
+    <div :class="['shadow-lg', 'rounded-2xl', 'p-4', 'flex', (needsAttention && !isCompleted) ? 'bg-red-200': 'bg-white']">
         <router-link :to="viewLink"  class="flex-grow">
             <h1 class="font-bold truncate">
                 {{title}}
@@ -53,10 +53,9 @@
     const needsAttention = computed(() => {
         const deadlineDate = new Date(props.deadline);
         const currentDate = new Date();
-        const oneDayFromNow = new Date();
-        oneDayFromNow.setDate(currentDate.getDate() + 1);
-
-        return deadlineDate <= currentDate || deadlineDate <= oneDayFromNow;
+        deadlineDate.setDate(deadlineDate.getDate() - 1);
+        
+        return currentDate >= deadlineDate;
     })
 </script>
 
