@@ -1,8 +1,13 @@
 <template>
     <div>
-      <Pager :totalPages="data.last_page" :totalItems="data.total" :pageJump="fetchData"/>
-      <div v-for="task in data.data" :key="task.id" class="mb-3">
-        <TaskItem :id="task.id" :title="task.title" :description="task.description" :deadline="new Date(task.deadline)" :isImportant="task.isImportant===1? true: false" :isCompleted="task.isCompleted===1? true: false" :delete="deleteTask"/>
+      <span v-if="data.data.length>0">
+        <Pager :totalPages="data.last_page" :totalItems="data.total" :pageJump="fetchData"/>
+        <div v-for="task in data.data" :key="task.id" class="mb-3">
+          <TaskItem :id="task.id" :title="task.title" :description="task.description" :deadline="new Date(task.deadline)" :isImportant="task.isImportant===1? true: false" :isCompleted="task.isCompleted===1? true: false" :delete="deleteTask"/>
+        </div>
+      </span>
+      <div v-else class="bg-gray-300 h-64 flex justify-center items-center rounded-2xl">
+          <div class="text-center text-4xl text-gray-500">NO TASKS TO TRACK</div>
       </div>
     </div>
   </template>
