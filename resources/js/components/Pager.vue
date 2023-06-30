@@ -2,12 +2,12 @@
     <div class="flex flex-col-nowrap justify-between mb-2 overflow-auto">
         <div class="flex flex-col-nowrap justify-start py-2 bg-gray-300 rounded-full">
             <div v-if="page!=1" class="text-center w-8 mx-1 md:mx-5 cursor-pointer rounded-full bg-gray-400" @click="handlePageJump(page-1)">&lt;</div>
-            <div v-else class="text-center w-8 mx-1 md:mx-5 rounded-full bg-gray-100 text-gray-400">&lt;</div>
+            <div v-else class="text-center w-8 mx-1 md:mx-5 cursor-not-allowed rounded-full bg-gray-100 text-gray-400">&lt;</div>
             <div v-for="i in getPagesToShow()" :class="['text-center', 'w-8', 'mx-1', 'md:mx-5', 'cursor-pointer', 'rounded-full', (i==page? 'bg-blue-400': 'bg-gray-400')]" @click="handlePageJump(i)">
                 <span>{{ i }}</span>
             </div>
             <div v-if="page!=totalPages" class="text-center w-8 mx-1 md:mx-5 cursor-pointer rounded-full bg-gray-400" @click="handlePageJump(page+1)">&gt;</div>
-            <div v-else class="text-center w-8 mx-1 md:mx-5 rounded-full bg-gray-100 text-gray-400">&gt;</div>
+            <div v-else class="text-center w-8 mx-1 md:mx-5 cursor-not-allowed rounded-full bg-gray-100 text-gray-400">&gt;</div>
         </div>
         <div class="flex flex-col-nowrap py-2 bg-gray-300 px-4 rounded-full">
             <label for="itemPerPage" class="mr-2 whitespace-nowrap"> Items to show: </label>
