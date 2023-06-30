@@ -1,6 +1,7 @@
 <template>
     <div>
-      <div v-for="task in tasks" :key="task.id" class="mb-3">
+      <Pager :totalPages="data.last_page" :totalItems="data.total" :pageJump="fetchData"/>
+      <div v-for="task in data.data" :key="task.id" class="mb-3">
         <TaskItem :id="task.id" :title="task.title" :description="task.description" :deadline="new Date(task.deadline)" :isImportant="task.isImportant===1? true: false" :isCompleted="task.isCompleted===1? true: false" :delete="deleteTask"/>
       </div>
     </div>
@@ -8,21 +9,23 @@
   
   <script setup>
   import TaskItem from './TaskItem.vue';
+  import Pager from './Pager.vue';
   import axios from 'axios';
   import { ref } from 'vue';
   
-  const tasks = ref([]);
+  const data = ref([]);
   
-  const fetchTasks = async () => {
+  const fetchData = async (itemPerPage, page) => {
     try {
-      const response = await axios.get(route('tasks.index'));
-      tasks.value = response.data;
+      const response = await axios.get(route('tasks.index') + `/?itemPerPage=${itemPerPage? itemPerPage:5}&page=${page? page:1}`);
+      data.value = response.data;
     } catch (error) {
+      console.error(error);
       alert("Unable to fetch tasks.");
     }
   };
-  
-  fetchTasks();
+
+  fetchData();
   </script>
   
   <script>
@@ -33,23 +36,22 @@
     },
     data() {
       return {
-        tasks: [],
+        data: [],
       };
     },
     methods: {
       async deleteTask(id) {
         try {
           await axios.delete(`api/tasks/${id}`);
-          this.tasks = this.tasks.filter((task) => task.id !== id);
+          this.data.data = this.data.data.filter((task) => task.id !== id);
         } catch (error) {
           alert('Failed to delete task!');
         }
       },
-    },
+    }
   };
   </script>
   
   <style lang="scss" scoped>
-  
   </style>
   

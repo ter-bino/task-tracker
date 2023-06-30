@@ -27,3 +27,15 @@ background-color: #99F; /* Customize the thumb color */
 ::-webkit-scrollbar-thumb:hover {
 background-color: #55F; /* Customize the thumb color on hover */
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

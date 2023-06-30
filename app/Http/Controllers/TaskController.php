@@ -10,9 +10,14 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return Task::all();
+        $itemPerPage = $request->query('itemPerPage');
+        if ($itemPerPage != null && $itemPerPage > 0) {
+            return Task::paginate($itemPerPage);
+        } else {
+            return Task::all();
+        }
     }
 
     /**

@@ -18,5 +18,9 @@ use App\Http\Controllers\TaskController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// Route::resource('tasks', TaskController::class);
-Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::resource('tasks', TaskController::class);
+// Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+// Route::post('/tasks/{task}', [TaskController::class, 'store']);
+// Route::get('/tasks/id', [TaskController::class, 'show']);
+// Route::put('/tasks/{task}', [TaskController::class, 'update']);
+// Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
